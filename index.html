@@ -1,1 +1,79 @@
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Programação Imperativa</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // 1. Definir os dados
+        const participantes = [
+            { nome: 'Ian', funcao: 'Desenvolvedor' },
+            { nome: 'Leo', funcao: 'Designer' },
+            { nome: 'Muriel', funcao: 'Tester' }
+        ];
+
+        // 2. Selecionar o container
+        const app = document.getElementById('app');
+
+        // 3. Criar e configurar o título (Passo a passo)
+        const h1 = document.createElement('h1');
+        h1.innerText = 'Bem vindo ao nosso site!';
+        app.appendChild(h1);
+
+        // 4. Configurar o estilo do corpo imperativamente
+        document.body.style.backgroundColor = '#FF0000';
+        document.body.style.color = 'white';
+        document.body.style.fontFamily = 'Arial, sans-serif';
+
+        // 5. Criar a tabela manualmente
+        const tabela = document.createElement('table');
+        tabela.style.backgroundColor = 'white';
+        tabela.style.color = 'black';
+        tabela.style.width = '100%';
+        tabela.style.borderCollapse = 'collapse';
+
+        // Criar o cabeçalho
+        const thead = document.createElement('thead');
+        const trHead = document.createElement('tr');
+        ['Participante', 'Função'].forEach(texto => {
+            const th = document.createElement('th');
+            th.innerText = texto;
+            th.style.border = '1px solid #ddd';
+            th.style.padding = '12px';
+            th.style.backgroundColor = '#333';
+            th.style.color = 'white';
+            trHead.appendChild(th);
+        });
+        thead.appendChild(trHead);
+        tabela.appendChild(thead);
+
+        // 6. Loop Imperativo para preencher os dados
+        const tbody = document.createElement('tbody');
+        for (let i = 0; i < participantes.length; i++) {
+            const tr = document.createElement('tr');
+            
+            const tdNome = document.createElement('td');
+            tdNome.innerText = participantes[i].nome;
+            tdNome.style.border = '1px solid #ddd';
+            tdNome.style.padding = '12px';
+            
+            const tdFuncao = document.createElement('td');
+            tdFuncao.innerText = participantes[i].funcao;
+            tdFuncao.style.border = '1px solid #ddd';
+            tdFuncao.style.padding = '12px';
+
+            tr.appendChild(tdNome);
+            tr.appendChild(tdFuncao);
+            tbody.appendChild(tr);
+        }
+        
+        tabela.appendChild(tbody);
+        app.appendChild(tabela);
+    </script>
+</body>
+</html>
+
